@@ -1,0 +1,28 @@
+<form novalidate #form="ngForm">
+
+  <input type="hidden" name="Id"
+
+  [value]="service.formData.departmentid" />
+
+
+  <div class="form-group">
+    <label>DepartmentName</label>
+    <input class="form-control form-control-lg" placeholder="Enter DepartmentName"
+     name="Author" #Author="ngModel" [(ngModel)]="service.formData.departmentname">
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-info btn-lg btn-block" type="submit" (click)="insertRecord(form)" *ngIf="service.formData.departmentid==0">
+      Add
+    </button>
+    <button class="btn btn-info btn-lg btn-block" type="submit"  (click)="updateRecord(form)" *ngIf="service.formData.departmentid!=0">
+      Update
+    </button>
+    <button style="margin: 5px;"class="btn btn-info btn-lg btn-block" type="submit"  (click)="resetForm(form)">
+      cancel
+    </button>
+
+
+  </div>
+
+</form>

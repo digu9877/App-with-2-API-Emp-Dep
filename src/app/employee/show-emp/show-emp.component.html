@@ -1,0 +1,41 @@
+<!--<div class="jumbtron py-3" >
+  <h1 class="display-4 text-center">
+  </h1>
+</div>-->
+
+<div class="row">
+  <div class="col-md-6">
+    <app-add-edit-emp></app-add-edit-emp>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="filterTerm">
+    </div>
+
+      <table class="table table-dark table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th  scope="col" [appSort]=" service.list1" data-order="asc" data-name="employeeid">EmployeeId</th>
+            <th  scope="col" [appSort]=" service.list1" data-order="desc" data-name="employeename">EmployeeName</th>
+            <th  scope="col" [appSort]=" service.list1" data-order="desc" data-name="department">Department</th>
+            <th  scope="col" [appSort]=" service.list1" data-order="desc" data-name="dateofjoining" data-type="date">DateofJoining</th>
+            <th  scope="col" [appSort]=" service.list1" data-order="desc" data-name="photofilename">Photo</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let pd of  service.list1 | EFilter:filterTerm">
+            <td (click)="populateForm(pd)">{{pd.employeeid}}</td>
+            <td (click)="populateForm(pd)" >{{pd.employeename}}</td>
+            <td (click)="populateForm(pd)" >{{pd.department}}</td>
+            <td (click)="populateForm(pd)" >{{pd.dateofjoining}}</td>
+            <td (click)="populateForm(pd)" >{{pd.photofilename}}</td>
+
+            <td>
+              <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.employeeid)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
